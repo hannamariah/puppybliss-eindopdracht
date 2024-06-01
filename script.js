@@ -13,6 +13,7 @@ const schoonButton = document.querySelector('#schoon'); // De knop om je huisdie
 const speelGif = document.getElementById("mijnGif"); // De afbeelding van je huisdier
 const schoonGif = document.getElementById("mijnGif"); // ''//
 const voerGif = document.getElementById("mijnGif"); // ''//
+const backgroundMusic = document.getElementById("backgroundMusic");
 
 // Timers om regelmatig blijdschap en hygiëne te verlagen
 const blijdschapInterval = setInterval(decreaseBlijdschap, 10000); // Elke 10 seconden wordt blijdschap verlaagd
@@ -32,6 +33,7 @@ function logInput() {
         alert("Voer aub eerst een naam in voor je puppy"); // Waarschuwing als er geen naam is ingevoerd
     } else { // Als er wel een naam is ingevoerd
         h2.textContent = "Hi, mijn naam is " + tamagotchiNaam; // Laat de naam zien op het scherm, naam veranderen met textcontent
+        backgroundMusic.play();
     }
 }
     
