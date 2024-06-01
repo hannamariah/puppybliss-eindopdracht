@@ -15,11 +15,11 @@ const schoonGif = document.getElementById("mijnGif"); // ''//
 const voerGif = document.getElementById("mijnGif"); // ''//
 
 //OpenAI. (2024, June 1). "achtergrondmuziek werkt niet, heb je andere opties?'[Online conversation]. [Online conversation]. ChatGPT (Version 2). https://openai.com
-const backgroundMusic = document.getElementById("backgroundMusic");
+const achtergrondMuziek = document.getElementById("backgroundMusic");
 
 // Timers om regelmatig blijdschap en hygiëne te verlagen
-const blijdschapInterval = setInterval(decreaseBlijdschap, 2000); // Verlaag elke 2 seconden
-const hygiëneInterval = setInterval(decreaseHygiëne, 3000); // Verlaag elke 3 seconden
+const blijdschapInterval = setInterval(verlaagBlijdschap, 2000); // Verlaag elke 2 seconden
+const hygiëneInterval = setInterval(verlaagHygiëne, 3000); // Verlaag elke 3 seconden
 
 
 // Variabelen (let)
@@ -37,37 +37,42 @@ function logInput() {
         alert("Voer aub eerst een naam in voor je puppy"); // Waarschuwing als er geen naam is ingevoerd
     } else { // Als er wel een naam is ingevoerd
         h2.textContent = "Hi, mijn naam is " + tamagotchiNaam; // Laat de naam zien op het scherm, naam veranderen met textcontent
-        backgroundMusic.play();
+        achtergrondMuziek.play();
     }
 }
     
+// Functie voor het bijwerken van de status van het huisdier
 function updateStatus() {
-    trekSpan.textContent = trek; // Laat de huidige trek zien
-    blijdschapSpan.textContent = blijdschap; // Laat de huidige blijdschap zien
-    hygiëneSpan.textContent = hygiëne; // Laat de huidige hygiëne zien
+    trekSpan.textContent = trek; 
+    blijdschapSpan.textContent = blijdschap; 
+    hygiëneSpan.textContent = hygiëne; 
+    checkPetStatus(); // Controleer regelmatig de status van het huisdier
 }
 
-updateStatus(); // voert uit//
+updateStatus(); // Voert de updateStatus-functie uit wanneer de pagina laadt
 
+// Interval om de status van het huisdier regelmatig te controleren
+const statusCheckInterval = setInterval(checkPetStatus, 100); 
+
+// Functie voor het controleren van de status van het huisdier
 function checkPetStatus() {
-    if (trek <= 0 || blijdschap <= 0 || hygiëne <= 0) { // Als één van deze waarden 0 of lager is
-        clearInterval(blijdschapInterval); // Stop de blijdschap-timer
-        clearInterval(hygiëneInterval); // Stop de hygiëne-timer
+    if (trek <= 0 || blijdschap <= 0 || hygiëne <= 0) {
+        clearInterval(statusCheckInterval); // Stop het interval
         trek = 0; // Zet trek op 0
         blijdschap = 0; // Zet blijdschap op 0
         hygiëne = 0; // Zet hygiëne op 0
         voerButton.disabled = true; // Zet de voerknop uit
         speelButton.disabled = true; // Zet de speelknop uit
         schoonButton.disabled = true; // Zet de schoonknop uit
-        setTimeout(() => { // Wacht een korte tijd
-            alert("Helaas is je huisdier overleden"); // Geef een waarschuwing dat het huisdier is overleden
+        // Afbeelding van overleden huisdier
+        speelGif.src = "gifs/rip.gif";
+        setTimeout(function() {
+            confirm("Helaas is je puppy overleden..");
         }, 100);
-    } 
-       checkPetStatus(); // Controleer de status van het huisdier
+    }
 }
 
-
-function interactionFeed() {
+function interactieVoeren() {
     if (trek < 100) { // Als trek minder is dan 100
         trek += 10; // Voeg 10 toe aan trek
         if (trek > 100) { // Als trek meer dan 100 is
@@ -83,7 +88,7 @@ function interactionFeed() {
 
 
   
-function interactionPlay() {
+function interactieSpelen() {
     if (blijdschap < 100) { // Als blijdschap minder is dan 100
         blijdschap += 10; // Voeg 10 toe aan blijdschap
         if (blijdschap > 100) { // Als blijdschap meer dan 100 is
@@ -100,7 +105,7 @@ function interactionPlay() {
     }
 }
 
-function interactionClean() {
+function interactieSchoonmaken() {
     if (hygiëne < 100) { // Als hygiëne minder is dan 100
         hygiëne += 10; // Voeg 10 toe aan hygiëne
         if (hygiëne > 100) { // Als hygiëne meer dan 100 is
@@ -110,7 +115,7 @@ function interactionClean() {
     }
 }
 
-function decreaseBlijdschap() {
+function verlaagBlijdschap() {
     if (blijdschap > 0) {
         blijdschap -= 10; // Verlaag met 20 in plaats van 10
         if (blijdschap < 0) {
@@ -120,9 +125,9 @@ function decreaseBlijdschap() {
     }
 }
 
-function decreaseHygiëne() {
+function verlaagHygiëne() {
     if (hygiëne > 0) {
-        hygiëne -= 0; // Verlaag met 20 in plaats van 10
+        hygiëne -= 10; // Verlaag met 20 in plaats van 10
         if (hygiëne < 0) {
             hygiëne = 0;
         }
@@ -130,31 +135,31 @@ function decreaseHygiëne() {
     }
 }
 
-
-function changeToPlayGif() {
+function veranderNaarSpeelGif() {
     speelGif.src = "gifs/play.gif"; // Verander de GIF naar de speel-GIF
     speelGif.classList.add("stuiter"); 
 }
 
-function changeToCleanGif() {
+function veranderNaarSchoonGif() {
     schoonGif.src = "gifs/clean.gif"; // Verander de GIF naar de schoon-GIF
     schoonGif.classList.add("stuiter"); 
 }
 
-function changeToFeedGif() {
+function veranderNaarVoerGif() {
     voerGif.src = "gifs/feed.gif"; // Verander de GIF naar de voer-GIF
     voerGif.classList.add("stuiter"); 
 }
 
 // Event listeners //
 // Dit zijn de acties die gebeuren wanneer je op een knop klikt//
-voerButton.addEventListener('click', interactionFeed); // Als je op de voerknop klikt, voer het huisdier
-speelButton.addEventListener('click', interactionPlay); // Als je op de speelknop klikt, speel met het huisdier
-schoonButton.addEventListener('click', interactionClean); // Als je op de schoonknop klikt, maak het huisdier schoon
+
+voerButton.addEventListener('click', interactieVoeren); // Als je op de voerknop klikt, voer het huisdier
+speelButton.addEventListener('click', interactieSpelen); // Als je op de speelknop klikt, speel met het huisdier
+schoonButton.addEventListener('click', interactieSchoonmaken); // Als je op de schoonknop klikt, maak het huisdier schoon
 naamButton.addEventListener("click", logInput); // Als je op de naamknop klikt, log de ingevoerde naam
-speelButton.addEventListener("click", changeToPlayGif); // Als je op de speelknop klikt, verander de GIF naar de speel-GIF
-schoonButton.addEventListener("click", changeToCleanGif); // Als je op de schoonknop klikt, verander de GIF naar de schoon-GIF
-voerButton.addEventListener("click", changeToFeedGif); // Als je op de voerknop klikt, verander de GIF naar de voer-GIF
+speelButton.addEventListener("click", veranderNaarSpeelGif); // Als je op de speelknop klikt, verander de GIF naar de speel-GIF
+schoonButton.addEventListener("click", veranderNaarSchoonGif); // Als je op de schoonknop klikt, verander de GIF naar de schoon-GIF
+voerButton.addEventListener("click", veranderNaarVoerGif); // Als je op de voerknop klikt, verander de GIF naar de voer-GIF
 
 updateStatus(); // Werk de status bij als de pagina laadt
 
