@@ -112,7 +112,7 @@ function interactionClean() {
 
 function decreaseBlijdschap() {
     if (blijdschap > 0) {
-        blijdschap -= 20; // Verlaag met 20 in plaats van 10
+        blijdschap -= 10; // Verlaag met 20 in plaats van 10
         if (blijdschap < 0) {
             blijdschap = 0;
         }
@@ -122,7 +122,7 @@ function decreaseBlijdschap() {
 
 function decreaseHygiëne() {
     if (hygiëne > 0) {
-        hygiëne -= 20; // Verlaag met 20 in plaats van 10
+        hygiëne -= 0; // Verlaag met 20 in plaats van 10
         if (hygiëne < 0) {
             hygiëne = 0;
         }
