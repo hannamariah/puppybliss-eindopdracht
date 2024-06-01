@@ -66,6 +66,7 @@ function checkPetStatus() {
         schoonButton.disabled = true; // Zet de schoonknop uit
         // Afbeelding van overleden huisdier
         speelGif.src = "gifs/rip.gif";
+        speelGif.classList.remove("stuiter");
         setTimeout(function() {
             confirm("Helaas is je puppy overleden..");
         }, 100);
