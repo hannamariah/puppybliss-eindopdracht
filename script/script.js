@@ -31,6 +31,7 @@ let hygiëne = 100; // Startwaarde voor hygiëne (schoonheid)
 let tamagotchiNaam; // De naam van je huisdier
 
 // Functies
+
 function logInput() {
     tamagotchiNaam = naamInput.value; // Haal de naam uit het invoervakje
     if (naamInput.value === "") { // Controleer of er een naam is ingevoerd
@@ -38,6 +39,7 @@ function logInput() {
     } else { // Als er wel een naam is ingevoerd
         h2.textContent = "Hi, mijn naam is " + tamagotchiNaam; // Laat de naam zien op het scherm, naam veranderen met textcontent
         achtergrondMuziek.play();
+        startGame(); // Start het spel nadat de naam is ingevoerd
     }
 }
     
