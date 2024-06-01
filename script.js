@@ -13,14 +13,18 @@ const schoonButton = document.querySelector('#schoon'); // De knop om je huisdie
 const speelGif = document.getElementById("mijnGif"); // De afbeelding van je huisdier
 const schoonGif = document.getElementById("mijnGif"); // ''//
 const voerGif = document.getElementById("mijnGif"); // ''//
+
+//OpenAI. (2024, June 1). "achtergrondmuziek werkt niet, heb je andere opties?'[Online conversation]. [Online conversation]. ChatGPT (Version 2). https://openai.com
 const backgroundMusic = document.getElementById("backgroundMusic");
 
 // Timers om regelmatig blijdschap en hygiëne te verlagen
-const blijdschapInterval = setInterval(decreaseBlijdschap, 10000); // Elke 10 seconden wordt blijdschap verlaagd
-const hygiëneInterval = setInterval(decreaseHygiëne, 15000); // Elke 15 seconden wordt hygiëne verlaagd
+const blijdschapInterval = setInterval(decreaseBlijdschap, 2000); // Verlaag elke 2 seconden
+const hygiëneInterval = setInterval(decreaseHygiëne, 3000); // Verlaag elke 3 seconden
+
 
 // Variabelen (let)
 // Dit zijn dingen die we kunnen veranderen
+
 let trek = 100; // Startwaarde voor trek (honger)
 let blijdschap = 100; // Startwaarde voor blijdschap (blij zijn)
 let hygiëne = 100; // Startwaarde voor hygiëne (schoonheid)
@@ -104,24 +108,25 @@ function interactionClean() {
 }
 
 function decreaseBlijdschap() {
-    if (blijdschap > 0) { // Als blijdschap meer dan 0 is
-        blijdschap -= 10; // Verminder blijdschap met 10
-        if (blijdschap < 0) { // Als blijdschap minder dan 0 is
-            blijdschap = 0; // Zet blijdschap op 0
+    if (blijdschap > 0) {
+        blijdschap -= 20; // Verlaag met 20 in plaats van 10
+        if (blijdschap < 0) {
+            blijdschap = 0;
         }
-        updateStatus(); // Werk de status bij
+        updateStatus();
     }
 }
 
 function decreaseHygiëne() {
-    if (hygiëne > 0) { // Als hygiëne meer dan 0 is
-        hygiëne -= 10; // Verminder hygiëne met 10
-        if (hygiëne < 0) { // Als hygiëne minder dan 0 is
-            hygiëne = 0; // Zet hygiëne op 0
+    if (hygiëne > 0) {
+        hygiëne -= 20; // Verlaag met 20 in plaats van 10
+        if (hygiëne < 0) {
+            hygiëne = 0;
         }
-        updateStatus(); // Werk de status bij
+        updateStatus();
     }
 }
+
 
 function changeToPlayGif() {
     speelGif.src = "gifs/play.gif"; // Verander de GIF naar de speel-GIF
