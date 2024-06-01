@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puppy Bliss</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="audio-container">
+        <audio autoplay loop>
+            <!--bron audio : https://bit.ly/3V01uvQ -->
+            <source src="audio/tamagotchimuziekje.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="tamagotchi">
+        <h1>Puppy Bliss</h1>
+        <div class="nameInput">
+            <label for="nameInput">Geef jouw huisdier een leuke naam</label>
+            <input type="text" name="nameInput" id="nameInput" />
+            <button id="nameButton">Groet mij!</button>
+        </div>
+
+        <h2></h2>
+        <img id="mijnGif" src="gifs/feed.gif" alt="Leuke GIF">
+        
+        <div id="huisdier" class="stuiter"></div>
+        <div id="weergave">
+            <h2 id="naam"></h2>
+            <p id="status"></p>
+        </div>
+
+        <div id="acties">
+            <p>Trek: <span id="trek">100</span>%</p>
+            <p>Blijdschap: <span id="blijdschap">100</span>%</p>
+            <p>Hygiëne: <span id="hygiëne">100</span>%</p>
+        </div>
+
+        <button id="voer">Voer</button>
+        <button id="speel">Speel</button>
+        <button id="schoon">Maak schoon</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

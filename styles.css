@@ -1,0 +1,103 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ecced2;
+    background-image: url(images/achtergrond.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh; 
+}
+
+.tamagotchi {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#mijnGif { 
+    width: 265px;
+    height: 250px;
+    border-radius: 100%;
+    margin: 0px;
+    padding-top: 10px;
+    border: 5px solid #f4e2e4; 
+    text-align: center;
+    background-color: #ecced2;
+    justify-content: center; 
+}
+
+.stuiter {
+    animation: stuiter 1.5s infinite alternate; /* Verlengt de duur van de animatie */
+}
+
+@keyframes stuiter {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+}
+
+#naam {
+    font-size: 24px;
+}
+
+#status {
+    font-size: 18px;
+}
+
+#acties {
+    margin-top: 20px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #FAB8C2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #FFE6AC; 
+}
+
+.nameInput {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Ruimte tussen de elementen */
+    margin-bottom: 20px;
+}
+
+.nameInput label {
+    font-size: 16px; 
+}
+
+.nameInput input {
+    font-size: 18px; 
+    padding: 10px; 
+    width: 200px; 
+    border: 2px solid #FAB8C2; 
+    border-radius: 5px; 
+}
+
+.nameInput button {
+    font-size: 18px; /* Vergroot lettertype */
+    padding: 10px 20px; /* Vergroot padding */
+    border: 2px solid #FAB8C2; /* Rand toevoegen */
+    border-radius: 5px; /* Rand afronden */
+    background-color: #FFE6AC; /* Achtergrondkleur veranderen */
+    cursor: pointer;
+}
+
+.nameInput button:hover {
+    background-color: #FAB8C2; /* Achtergrondkleur veranderen bij hover */
+}
