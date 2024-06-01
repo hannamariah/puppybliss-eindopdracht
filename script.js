@@ -62,9 +62,10 @@ function checkPetStatus() {
         setTimeout(() => { // Wacht een korte tijd
             alert("Helaas is je huisdier overleden"); // Geef een waarschuwing dat het huisdier is overleden
         }, 100);
-    }
+    } 
+       checkPetStatus(); // Controleer de status van het huisdier
 }
-    checkPetStatus(); // Controleer de status van het huisdier
+
 
 function interactionFeed() {
     if (trek < 100) { // Als trek minder is dan 100
@@ -75,10 +76,12 @@ function interactionFeed() {
         if (blijdschap < 100) { // Als blijdschap minder is dan 100
             blijdschap += 5; // Voeg 5 toe aan blijdschap
         }
-    }
+    }  
+    
+    updateStatus(); // Werk de status bij
 }
 
-  updateStatus(); // Werk de status bij
+
   
 function interactionPlay() {
     if (blijdschap < 100) { // Als blijdschap minder is dan 100
