@@ -1,4 +1,5 @@
 // constanten - lett- functies-addeventlister//
+/*[Online conversation]. ChatGPT (Version 2). https://openai.com*/
 // Constanten
 // Dit zijn dingen die we uit de HTML halen en die we niet veranderen
 const naamInput = document.getElementById("nameInput"); // Het vakje waar je de naam van je huisdier invult
@@ -74,6 +75,7 @@ function checkPetStatus() {
         }, 100);
     }
 }
+/*[Online conversation]. ChatGPT (Version 2). https://openai.com*/
 
 function interactieVoeren() {
     if (trek < 100) { // Als trek minder is dan 100
@@ -166,7 +168,7 @@ voerButton.addEventListener("click", veranderNaarVoerGif); // Als je op de voerk
 
 updateStatus(); // Werk de status bij als de pagina laadt
 
-
+/*[Online conversation]. ChatGPT (Version 2). https://openai.com*/
 
 
 
