@@ -56,8 +56,6 @@ function updateStatus() {
 
 updateStatus(); // Voert de updateStatus-functie uit wanneer de pagina laadt
 
-
-
 // Functie voor het controleren van de status van het huisdier
 function checkPetStatus() {
     if (trek <= 0 || blijdschap <= 0 || hygiëne <= 0) {
@@ -133,7 +131,7 @@ function verlaagBlijdschap() {
 
 function verlaagHygiëne() {
     if (hygiëne > 0) {
-        hygiëne -= 10; // Verlaag met 20 in plaats van 10
+        hygiëne -= 10; // Verlaag met 10
         if (hygiëne < 0) {
             hygiëne = 0;
         }
