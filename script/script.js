@@ -22,6 +22,8 @@ const achtergrondMuziek = document.getElementById("backgroundMusic");
 const blijdschapInterval = setInterval(verlaagBlijdschap, 2000); // Verlaag elke 2 seconden
 const hygiëneInterval = setInterval(verlaagHygiëne, 3000); // Verlaag elke 3 seconden
 
+// Interval om de status van het huisdier regelmatig te controleren
+const statusCheckInterval = setInterval(checkPetStatus, 100); 
 
 // Variabelen (let)
 // Dit zijn dingen die we kunnen veranderen
@@ -32,7 +34,7 @@ let hygiëne = 100; // Startwaarde voor hygiëne (schoonheid)
 let tamagotchiNaam; // De naam van je huisdier
 
 // Functies
-
+/*behulp van seth* +  https://openai.com*/
 function logInput() {
     tamagotchiNaam = naamInput.value; // Haal de naam uit het invoervakje
     if (naamInput.value === "") { // Controleer of er een naam is ingevoerd
@@ -54,8 +56,7 @@ function updateStatus() {
 
 updateStatus(); // Voert de updateStatus-functie uit wanneer de pagina laadt
 
-// Interval om de status van het huisdier regelmatig te controleren
-const statusCheckInterval = setInterval(checkPetStatus, 100); 
+
 
 // Functie voor het controleren van de status van het huisdier
 function checkPetStatus() {
